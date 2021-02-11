@@ -8,7 +8,7 @@ from .commands import create_tables
 
 def create_app(config_file="settings.py"):
     app = Flask(__name__, static_folder=os.path.abspath(
-        "build"), static_url_path='/')
+        "client/build"), template_folder=os.path.abspath('client'))
     
     app.config.from_pyfile(config_file)
 
