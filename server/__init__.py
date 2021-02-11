@@ -3,7 +3,7 @@ import os
 
 from server.main import main_bp
 from server.convert import convert_bp
-from .extensions import db
+from .models import db
 from .commands import create_tables
 
 def create_app(config_file="settings.py"):
