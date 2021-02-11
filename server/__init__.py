@@ -14,7 +14,6 @@ def create_app(config_file="settings.py"):
 
     #init the db
     db.init_app(app)
-    print('db in init', db)
 
     # register api routes
     app.register_blueprint(main_bp)
