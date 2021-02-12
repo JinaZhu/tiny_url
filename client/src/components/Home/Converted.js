@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 
 import {
   FormText,
@@ -41,6 +42,12 @@ const Converted = ({ urlData, setIsConverted, apiUrl }) => {
       </ButtonContainer>
     </ConvertedContainer>
   );
+};
+
+Converted.propTypes = {
+  urlData: PropTypes.object.isRequired,
+  setIsConverted: PropTypes.func,
+  apiUrl: PropTypes.string.isRequired,
 };
 
 export default Converted;
