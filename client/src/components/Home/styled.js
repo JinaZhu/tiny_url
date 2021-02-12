@@ -46,7 +46,7 @@ export const Button = styled.button`
   font-weight: 700;
   font-size: 1rem;
   border-radius: 10px;
-  padding: 15px 30px;
+  padding: ${(props) => props.padding || "15px 30px"};
   margin-top: 15px;
   outline: none;
   cursor: pointer;
@@ -73,6 +73,8 @@ export const UrlContainer = styled.div`
   padding: 16px 10px;
   height: auto;
   width: 400px;
+  cursor: ${(props) => props.cursor};
+  position: relative;
 `;
 
 export const RedirectLink = styled.a`
@@ -83,5 +85,5 @@ export const RedirectLink = styled.a`
 export const ButtonContainer = styled.div`
   ${alignCenter};
   justify-content: space-between;
-  width: 350px;
+  width: 375px;
 `;

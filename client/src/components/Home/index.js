@@ -40,7 +40,11 @@ const Home = () => {
   return (
     <HomeContainer>
       {!isConverted && (
-        <ConvertForm convertUrl={convertUrl} setUrlInput={setUrlInput} />
+        <ConvertForm
+          convertUrl={convertUrl}
+          setUrlInput={setUrlInput}
+          urlInput={urlInput}
+        />
       )}
       {isConverted && (
         <Converted

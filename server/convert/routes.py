@@ -27,8 +27,11 @@ def convert_url():
 
 @convert_bp.route('/<path_end>')
 def redirect_converted_url(path_end):
-    url_path_end = Url.query.filter_by(converted_url=path_end).first().original_url
-    return redirect(url_path_end, 302)
+    url_path_end = Url.query.filter_by(converted_url=path_end).first()
+    # increase visit count everytime this path is entered
+    url_path_end.visit_count += 1
+    db.session.commit()
+    return redirect(url_path_end.original_url, 302)
         
 
 
