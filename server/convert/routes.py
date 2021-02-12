@@ -12,7 +12,9 @@ def convert_url():
         return jsonify("No url was provided, please try again"), 400
     
     try:
-        unqiue_path_part = generate_unqiue_path_part(request_body.get('url'))
+        # helper to generate unqiue path
+        unqiue_path_part = generate_unqiue_path_part(request_body.get('url'), Url)
+        print('unqiue_path_part', unqiue_path_part)
         
         db.session.add(Url(original_url=request_body.get('url'), converted_url=unqiue_path_part, visit_count=0))
         db.session.commit()
