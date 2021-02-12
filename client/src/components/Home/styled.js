@@ -73,6 +73,7 @@ export const UrlContainer = styled.div`
   width: 400px;
   cursor: ${(props) => props.cursor};
   position: relative;
+  word-wrap: break-word;
 `;
 
 export const RedirectLink = styled.a`
