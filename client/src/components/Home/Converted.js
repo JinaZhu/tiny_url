@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 import {
   FormText,
   ConvertedContainer,
@@ -8,8 +9,8 @@ import {
   ButtonContainer,
 } from "./styled";
 
-const Converted = ({ urlData, setisConverted, apiUrl }) => {
-  const [CopyText, setCopyText] = useState("Copy");
+const Converted = ({ urlData, setIsConverted, apiUrl }) => {
+  const [copyText, setCopyText] = useState("Copy");
 
   function copy() {
     navigator.clipboard.writeText(apiUrl + urlData.converted_url);
@@ -34,9 +35,9 @@ const Converted = ({ urlData, setisConverted, apiUrl }) => {
           </RedirectLink>
         </Button>
         <Button padding="15px 10px" onClick={copy}>
-          {CopyText}
+          {copyText}
         </Button>
-        <Button onClick={() => setisConverted(false)}>Shorten Another</Button>
+        <Button onClick={() => setIsConverted(false)}>Shorten Another</Button>
       </ButtonContainer>
     </ConvertedContainer>
   );

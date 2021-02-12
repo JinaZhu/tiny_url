@@ -1,20 +1,23 @@
 import hashlib
 import uuid
 
-def generate_unqiue_path_part(url, urlTable):
-    unqiue_id = uuid.uuid4()
+def generate_unique_path_part(url, Url_Model):
+    unique_id = uuid.uuid4()
     # combining url with a unique id to ensure same url will get their own unique path
-    unqiue_url = url + str(unqiue_id)
-    encode_data = hashlib.sha1(unqiue_url.encode())
-    encode_url = encode_data.hexdigest()
-    unqiue_path = encode_url[:6]
+    unique_url = url + str(unique_id)
+    encoded_data = hashlib.sha1(unique_url.encode())
+    encoded_url = encoded_data.hexdigest()
+    # encoded_url is 40 chars, using the first 6 for path
+    unique_path = encoded_url[:6]
 
     # check to ensure the generated path isn't in the db
-    exist = urlTable.query.filter_by(converted_url=unqiue_path).scalar()
-    if exist != None:
-        generate_unqiue_path_part(url)
+    does_unique_path_exist = Url_Model.query.filter_by(converted_url=unique_path).scalar()
+    if does_unique_path_exist != None:
+        generate_unique_path_part(url, Url_Model)
     else:
-        return(unqiue_path)
+        return unique_path
+
+
 
 
 
