@@ -6,7 +6,6 @@ import {
   Button,
   RedirectLink,
   ButtonContainer,
-  Copied,
 } from "./styled";
 
 const Converted = ({ urlData, setisConverted, apiUrl }) => {

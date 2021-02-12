@@ -7,10 +7,8 @@ const alignCenter = css`
 `;
 
 export const HomeContainer = styled.div`
-  height: 100vh;
-  width: 100vw;
-  background-color: #6c98c6;
-  ${alignCenter}
+  ${alignCenter};
+  height: 80vh;
 `;
 
 export const FormContainer = styled.form`
