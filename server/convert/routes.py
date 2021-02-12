@@ -18,7 +18,7 @@ def convert_url():
         db.session.commit()
         response = {
             'original_url': request_body.get('url'),
-            'converted_url': 'https://tiniurl.herokuapp.com/' + unqiue_path_part,
+            'converted_url': unqiue_path_part
         }
 
         return response, 200
