@@ -53,7 +53,7 @@ const Home = () => {
       {isConverted && (
         <Converted
           urlData={urlData}
-          setisConverted={setIsConverted}
+          setIsConverted={setIsConverted}
           apiUrl={apiUrl}
         />
       )}
