@@ -12,6 +12,9 @@ def convert_url():
     # extra check to ensure we have a url to work with
     if request_body is None or request_body.get('url') == "":
         return jsonify("No url was provided, please try again"), 400
+
+    if 'http' not in request_body.get('url'):
+        return jsonify("Invalid URL, please try again"), 400
     
     try:
         # helper to generate unique path

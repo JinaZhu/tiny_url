@@ -30,11 +30,9 @@ const Converted = ({ urlData, setIsConverted, apiUrl }) => {
         <p>{apiUrl + urlData.converted_url}</p>
       </UrlContainer>
       <ButtonContainer>
-        <Button>
-          <RedirectLink href={apiUrl + urlData.converted_url} target="_blank">
-            Visit
-          </RedirectLink>
-        </Button>
+        <RedirectLink href={apiUrl + urlData.converted_url} target="_blank">
+          Visit
+        </RedirectLink>
         <Button padding="15px 10px" onClick={copy}>
           {copyText}
         </Button>
