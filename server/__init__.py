@@ -3,6 +3,7 @@ import os
 
 from server.main import main_bp
 from server.convert import convert_bp
+from server.misc import misc_bp
 from .models import db
 from .commands import create_tables
 
@@ -18,7 +19,8 @@ def create_app(config_file="settings.py"):
     # register api routes
     app.register_blueprint(main_bp)
     app.register_blueprint(convert_bp)
-
+    app.register_blueprint(misc_bp)
+    
     # register click command to create tables
     app.cli.add_command(create_tables)
 
