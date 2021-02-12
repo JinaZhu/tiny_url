@@ -1,4 +1,4 @@
-# The Shoppies Award
+# TiniURL
 
 \*\*It's Live! View it [here!](https://tiniurl.herokuapp.com/)
 
