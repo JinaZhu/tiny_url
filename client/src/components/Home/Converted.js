@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
+import PropTypes from "prop-types";
+
 import {
   FormText,
   ConvertedContainer,
@@ -8,7 +10,14 @@ import {
   ButtonContainer,
 } from "./styled";
 
-const Converted = ({ urlData, setisConverted, apiUrl }) => {
+const Converted = ({ urlData, setIsConverted, apiUrl }) => {
+  const [copyText, setCopyText] = useState("Copy");
+
+  function copy() {
+    navigator.clipboard.writeText(apiUrl + urlData.converted_url);
+    setCopyText("Copied");
+  }
+
   return (
     <ConvertedContainer>
       <FormText>Your Long URL</FormText>
@@ -26,10 +35,19 @@ const Converted = ({ urlData, setisConverted, apiUrl }) => {
             Visit
           </RedirectLink>
         </Button>
-        <Button onClick={() => setisConverted(false)}>Shorten Another</Button>
+        <Button padding="15px 10px" onClick={copy}>
+          {copyText}
+        </Button>
+        <Button onClick={() => setIsConverted(false)}>Shorten Another</Button>
       </ButtonContainer>
     </ConvertedContainer>
   );
+};
+
+Converted.propTypes = {
+  urlData: PropTypes.object.isRequired,
+  setIsConverted: PropTypes.func,
+  apiUrl: PropTypes.string.isRequired,
 };
 
 export default Converted;

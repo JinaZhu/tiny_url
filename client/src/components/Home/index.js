@@ -11,14 +11,16 @@ const apiUrl =
 
 const Home = () => {
   const [urlInput, setUrlInput] = useState("");
-  const [isConverted, setisConverted] = useState(false);
+  const [isConverted, setIsConverted] = useState(false);
   const [urlData, setUrlData] = useState(undefined);
 
   async function convertUrl(e) {
     e.preventDefault();
+
     const body = {
       url: urlInput,
     };
+
     try {
       const response = await fetch(`${apiUrl}/api/convert_url`, {
         method: "POST",
@@ -27,10 +29,12 @@ const Home = () => {
         },
         body: JSON.stringify(body),
       });
+
       const data = await response.json();
+
       if (data.converted_url) {
         setUrlData(data);
-        setisConverted(true);
+        setIsConverted(true);
       }
     } catch (error) {
       console.log("error", error);
@@ -40,12 +44,16 @@ const Home = () => {
   return (
     <HomeContainer>
       {!isConverted && (
-        <ConvertForm convertUrl={convertUrl} setUrlInput={setUrlInput} />
+        <ConvertForm
+          handleSubmit={convertUrl}
+          setUrlInput={setUrlInput}
+          urlInput={urlInput}
+        />
       )}
       {isConverted && (
         <Converted
           urlData={urlData}
-          setisConverted={setisConverted}
+          setisConverted={setIsConverted}
           apiUrl={apiUrl}
         />
       )}
